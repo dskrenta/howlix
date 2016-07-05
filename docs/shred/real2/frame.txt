@@ -1,0 +1,9 @@
+<?php
+// Framework for Shredfeed - ALL PAGES
+require 'functions.php';
+require 'fb.php';
+require 'header.php';
+
+
+require 'footer.php';
+?>

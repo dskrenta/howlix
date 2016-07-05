@@ -1,0 +1,17 @@
+<!-- Session -->
+<script src="js/session.js"></script>
+<script src="js/library.js"></script>
+<script>
+
+item = window.atob(localStorage.getItem("user"));
+user = JSON.parse(item);
+if (user.type == 0)
+{
+	window.location = "http://howlix.com/testtaker4/student_dash";
+}
+else
+{
+	window.location = "http://howlix.com/testtaker4/teacher_dash";
+}
+
+</script>

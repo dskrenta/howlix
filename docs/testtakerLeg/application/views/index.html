@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="google-signin-client_id" content="435767662604-c310vk8sc3peuc6fqlp9r80uve0e37ro.apps.googleusercontent.com">
+    <link rel="icon" href="">
+
+    <title>Testtaker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/cover.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+<div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Testtaker</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div class="inner cover">
+            <h1 class="cover-heading">Learning made fun!</h1>
+            <p class="lead">Eliminate the hassle involved with taking tests with Testtaker. Testtaker allows teachers to create tests online and distribute them to students in a secure format over all devices.</p>
+            <p class="lead">
+	      <center>
+	      <div id="my-signin2"></div>
+	      <button class="btn btn-default" onclick="signOut();">Sign out</button>
+              </center>
+            </p>
+          </div>
+          <div class="mastfoot">
+            <div class="inner">
+              <p>&copy; Testtaker <span id="date"></span> &middot; Terms & Privacy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Modal -->
+<div class="text-container">
+<div class="modal fade" id="myRegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+        <h2 class="modal-title" id="myModalLabel">Welcome to Testtaker, <span id="name"></span></h2>
+      </div>
+      <div class="modal-body">
+	<h4>I am a:</h4>
+      	<div class="list-group">
+  		<a href="#" class="list-group-item" onclick="setType(0);">Student</a>
+  		<a href="#" class="list-group-item" onclick="setType(1);">Teacher</a>
+	</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+	<!-- Bootstrap core JavaScript
+    	================================================== -->
+    	<!-- Placed at the end of the document so the pages load faster -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    	<script src="js/bootstrap.min.js"></script>
+	<!--<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>-->
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" defer></script>
+	<script src="js/library.js"></script>
+	
+	<script>
+	/*
+		function onSignIn(googleUser) 
+		{
+  			var profile = googleUser.getBasicProfile();
+  			console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  			console.log('Name: ' + profile.getName());
+  			console.log('Image URL: ' + profile.getImageUrl());
+  			console.log('Email: ' + profile.getEmail());
+		}
+
+		function signOut() 
+		{
+    			var auth2 = gapi.auth2.getAuthInstance();
+    			auth2.signOut().then(function () 
+			{
+      				console.log('User signed out.');
+    			});
+  		}
+
+		function renderButton() 
+		{
+      			gapi.signin2.render('my-signin2', 
+			{
+        			'scope': 'https://www.googleapis.com/auth/plus.login',
+        			'width': 200,
+        			'height': 50,
+        			'longtitle': false,
+        			'theme': 'dark',
+        			'onsuccess': onSuccess,
+        			'onfailure': onFailure
+      			});
+    		}
+
+		function onSuccess(googleUser) 
+		{
+			profile = googleUser.getBasicProfile();
+			$.post(
+				"http://howlix.com/testtaker4/application/userCheck.php",
+				{
+					uuid: window.btoa(profile.getEmail())
+				},
+				function(data)
+				{
+					if(data != "false")
+					{
+						localStorage.setItem("user", window.btoa(data));
+						window.location = "http://howlix.com/testtaker4/dash";	
+					}
+					else
+					{
+						profile = googleUser.getBasicProfile();
+                        
+						user = {
+							"uuid": window.btoa(profile.getEmail()),
+							"google_id": profile.getId(),
+							"name": profile.getName(),
+							"email": profile.getEmail(),
+							"image_url": profile.getImageUrl(),
+							"type": null, 
+							"tests": null,
+							"classes": null
+						};
+
+						json = JSON.stringify(user);				
+
+						$.post( 
+                                			"http://howlix.com/testtaker4/application/userRegister.php",
+                                			{
+                                        			uuid: window.btoa(profile.getEmail()),
+								json: json
+                                			},      
+                                			function(data)
+                               		 		{
+                                        			if(data == "success")
+                                        			{
+									document.getElementById("name").innerHTML = profile.getName();
+									$('#myRegisterModal').modal('show')
+                                        			}       
+                                        			else    
+                                        			{
+                                       					alert("Error logging in."); 
+                                        			}
+                                			}       
+                        			);
+					}	
+				}
+			);			
+   		}
+    
+		function onFailure(error) 
+		{
+      			console.log(error);
+			alert("Failed to login");
+    		}
+
+		function setType(type)
+		{
+			$.post(
+                        	"http://howlix.com/testtaker4/application/userTypeRegister.php",
+                              	{
+                                	type: type,
+					uuid: window.btoa(profile.getEmail())
+                           	},
+                    		function(data)
+                               	{
+					if(data != "failure")
+					{
+						localStorage.setItem("user", window.btoa(data));
+						window.location = "http://howlix.com/testtaker4/dash";
+					}
+					else
+					{
+						alert("error");
+					}
+				}
+			);
+		}
+
+		var d = new Date();
+    		var n = d.getFullYear(); 
+		document.getElementById("date").innerHTML = n;
+	*/
+	</script>
+
+</html>
+
+
+

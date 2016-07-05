@@ -1,0 +1,7 @@
+Funzilla.tv OPS Manual:
+
+Production: home/david/funzilla/docs
+Ops: home/david/howlix/docs/tv/ops
+Test: home/david/howlix/tv
+
+NOTE: Ops and Test are password protected, Production is not.

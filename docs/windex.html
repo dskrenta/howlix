@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Howlix</title>
+<link rel="shortcut icon" href="http://howlix.com/howlixicon.jpg" type="image/x-icon" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+    <style>
+    </style>
+
+
+</head>
+<body>
+
+<center>
+
+<div class="logo">
+How<span style="color:red">lix</span>
+</div>
+
+
+<form id="searchForm" name="searchForm" action="http://howlix.com/hnew.cgi" onsubmit="submitted('h'); return false" class="form-wrapper cf">
+<input id="searchBox" autofocus="autofocus" autocomplete="off" type="text" spellcheck="false" name="q" placeholder="search different" required />
+<button type="submit">Search</button>
+</form>
+
+</center>
+
+
+
+<script type="text/javascript"> 
+$(document).ready(function() {
+  $("input[name=q]").val( '' ).focus();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+Landing page
+	Sign in
+		Student
+		Teacher 
+	Sign up
+		Student 
+		Teacher
+			Dashboard
+				Student
+					Add class code
+					Classes
+					Tests
+					Account preferences
+				Teacher
+					Create class
+					Create test
+					Classes
+					Account preferences
+
+Sign in/Sign up
+	Javascript form validation
+		Ajax with python for data checking and storage (Python module connection)
+	Javascript success responses
+
+Dashboard data - Ajax data retrival 
+
+Test data - Ajax retrival
+
+Grader - Ajax retrival 

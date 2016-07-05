@@ -1,0 +1,22 @@
+<!-- Session -->
+<script src="js/session.js"></script>
+<script src="js/library.js"></script>
+<script>
+
+//document.write(document.cookie);
+//var cookies = document.cookie.split(';');
+//document.write(cookies[0]);
+
+//cookie = cookie();
+cookie = localStorage.getItem("user");
+user = JSON.parse(cookie);
+if (user.type == 0)
+{
+	window.location = "http://howlix.com/testtaker2/student_dash";
+}
+else
+{
+	window.location = "http://howlix.com/testtaker2/teacher_dash";
+}
+
+</script>

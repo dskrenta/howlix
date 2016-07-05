@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>Testtaker Sign In</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+    <link href="font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form action="" method="post">
+        <h2 class="form-signin-heading">Sign In</h2>
+       
+	<div class="form-group input_username" id="input_username">
+		<input type="text" id="username" name="username" class="form-control" placeholder="Username" autocomplete="off" required autofocus>
+	</div>
+	<div class="form-group input_password" id="input_password">
+		<input type="password" id="password" name="password" class="form-control" placeholder="Password" autocomplete="off" required>
+	</div>
+
+	<!--	
+	<div class="radio">
+  		<label>
+    			<input type="radio" name="type" id="type" value="0" checked>
+    			Student
+  		</label>
+	</div>
+	<div class="radio">
+  		<label>
+    			<input type="radio" name="type" id="type" value="1">
+    			Teacher
+  		</label>
+	</div>
+	-->
+
+	<div class="form-group">
+        <select class="form-control" name="type" id="type">
+                <option value="0">Student</option>
+                <option value="1">Teacher</option>
+        </select>
+        </div>
+
+	<div class="spacer"></div>
+
+      </form>
+
+	<button class="btn btn-lg btn-primary btn-block">Sign in</button>
+
+	<div style="width: 500px; float: left">
+            	</div>
+
+    </div> <!-- /container -->
+
+	<!-- Bootstrap core JavaScript
+    	================================================== -->
+    	<!-- Placed at the end of the document so the pages load faster -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    	<script src="js/bootstrap.min.js"></script>
+	<script src="js/library.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+
+		// must remove failure class and spans after done
+		validate("username", "input_username", "username");
+		validate("password", "input_password", "password");
+		
+		$("button").click(function()
+                {
+                        $.post(
+				"http://howlix.com/testtaker3/application/login.php", 
+				{ 
+					username: $("#username").val(),
+					password: $("#password").val()
+				}, 
+				function(data) 
+				{ 
+					if(data != "failure")
+					{
+						var user = JSON.parse(data);
+						var cookie = JSON.stringify(user);
+						//document.cookie = cookie; 
+						localStorage.setItem("user", cookie);
+						window.location = "http://howlix.com/testtaker3/dash";  
+					} 
+					else
+					{ 
+						alert("Please try again."); 
+					}
+				} 
+			);
+                });
+
+	</script>
+
+  </body>
+</html>
+
+
+

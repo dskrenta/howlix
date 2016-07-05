@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>Testtaker Create Test</title>
+
+    <!-- Session -->
+    <script src="js/session.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!--<link href="css/signin.css" rel="stylesheet">-->
+   
+    <script src="ckeditor/ckeditor.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+	<div class="page-header">
+		<h1>Create Test <small>Beta</small></h1>
+	</div>
+
+	<div class="well well-sm">
+		<div id="editor1" contenteditable="true">
+				<p class="lead"><b>1.</b> "If the Creator had separated Texas from the Union by mountain barriers, the Alps or the Andes, there might be plausible objections; but He has planed down the whole [Mississippi] Valley including Texas, and united every atom of the soil and every drop of the water of the mighty whole. He has linked their rivers with the great Mississippi, and marked and united the whole for the dominion of one government, the residence of one people." This quotation from the 1840's can be viewed as an expression of</p>
+			<div class="radio">
+				<label>
+    					<input type="radio" name="1" id="optionsRadios1" value="option1">
+    					(A) The New Nationalism
+  				</label>
+			</div>
+			<div class="radio">
+  				<label>
+    					<input type="radio" name="1" id="optionsRadios2" value="option2">
+    					(B) Popular sovereignty	
+  				</label>
+			</div>
+			<div class="radio">
+                                <label>
+                                        <input type="radio" name="1" id="optionsRadios3" value="option3">
+                                        (C) Manifest Destiny
+                                </label>
+                        </div>
+			<div class="radio">
+                                <label>
+                                        <input type="radio" name="1" id="optionsRadios4" value="option4">
+                                        (D) The Good Neighbor Policy
+                                </label>
+                        </div>
+			<div class="radio">
+                                <label>
+                                        <input type="radio" name="1" id="optionsRadios5" value="option5">
+                                        (E) The Frontier Thesis
+                                </label>
+			</div>
+		</div>
+	</div>
+	<script>
+    		// Turn off automatic editor creation first.
+    		CKEDITOR.disableAutoInline = true;
+   	 	CKEDITOR.inline( 'editor1' );
+		
+		var data = CKEDITOR.instances.editor1.getData();
+		console.log(data);
+	</script>
+		
+	<form method="POST" action="">
+		<div class="panel panel-default">
+                    	<div class="panel-body">
+				<div class="form-group">
+					<textarea id="question_1" name="question_1" class="form-control" rows="2" placeholder="Question 1"></textarea>
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" id="answer_1_1" name="answer_1_1" placeholder="Answer A">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" id="answer_1_2" name="answer_1_2" placeholder="Answer B">
+				</div>
+				<div class="form-group">	
+					<input type="text" class="form-control" id="answer_1_3" name="answer_1_3" placeholder="Answer C">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" id="answer_1_4" name="answer_1_4" placeholder="Answer D">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" id="answer_1_5" name="answer_1_5" placeholder="Answer E">
+				</div>
+				<div class="form-group">
+					<label>Correct Answer</label>
+					<select class="form-control" id="answer_1" name="answer_1">
+  						<option value="1">A</option>
+  						<option value="2">B</option>	
+  						<option value="3">C</option>
+  						<option value="4">D</option>
+  						<option value="5">E</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<button type="button" class="btn btn-default btn-lg btn-block" onclick="add()">Add Question</button>
+	<button type="button" class="btn btn-primary btn-lg btn-block" onclick="createTest()">Create</button>	
+	
+    </div> <!-- /container -->
+
+	<!--/#scripts-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/library.js"></script>
+
+	<!--TODO add auto test mock up/preview generation with jQuery-->
+
+	<script type="text/javascript">
+		var count = 2;
+
+		function add()
+		{
+			var html = "<div class=\"panel panel-default\"><div class=\"panel-body\"><div class=\"form-group\"><textarea id=\"question_" + count + "\" name=\"question_" + count + "\" class=\"form-control\" rows=\"2\" placeholder=\"Question " + count + "\"></textarea></div><div class=\"form-group\"><input type=\"text\" class=\"form-control\" id=\"answer_" + count + "_1\" name=\"answer_" + count + "_1\" placeholder=\"Answer A\"></div><div class=\"form-group\"><input type=\"text\" class=\"form-control\" id=\"answer_" + count + "_2\" name=\"answer_" + count + "_2\" placeholder=\"Answer B\"></div><div class=\"form-group\"><input type=\"text\" class=\"form-control\" id=\"answer_" + count + "_3\" name=\"answer_" + count + "_3\" placeholder=\"Answer C\"></div><div class=\"form-group\"><input type=\"text\" class=\"form-control\" id=\"answer_" + count + "_4\" name=\"answer_" + count + "_4\" placeholder=\"Answer D\"></div><div class=\"form-group\"><input type=\"text\" class=\"form-control\" id=\"answer_" + count + "_5\" name=\"answer_" + count + "_5\" placeholder=\"Answer E\"></div><div class=\"form-group\"><label>Correct Answer</label><select class=\"form-control\" id=\"answer_" + count + "\" name=\"answer_" + count + "\"><option value=\"1\">A</option><option value=\"2\">B</option><option value=\"3\">C</option><option value=\"4\">D</option><option value=\"5\">E</option></select></div></div></div>";			
+
+			$(html).insertAfter(".panel:last");
+
+			count ++;
+		}
+
+		//Parse script
+
+		function createTest()
+		{
+			var arr = [];	
+			var testId = guid();	
+			var number = 1;		 
+	
+			while($("#question_" + number).length)
+			{
+				question = $("#question_" + number).val();
+				answerA = $("#answer_" + number + "_1").val(); 
+				answerB = $("#answer_" + number + "_2").val();
+				answerC = $("#answer_" + number + "_3").val();
+				answerD = $("#answer_" + number + "_4").val();
+				answerE = $("#answer_" + number + "_5").val();
+				correctAnswer = $("#answer_" + number).val(); 
+
+				var question = {question: question, answerA: answerA, answerB: answerB, answerC: answerC, answerD: answerD, answerE: answerE, correctAnswer: correctAnswer};
+				arr.push(question);
+				
+				console.log(question);
+
+				number ++;
+			}
+
+			json = JSON.stringify(arr);
+
+			$.post(
+				"http://howlix.com/testtaker2/application/createTest.php", 
+				{ 
+					json: json, 
+					testId: testId 
+				}, 
+				function(data) 
+				{ 
+					if(data == "success")
+					{ 
+						//window.location = "http://howlix.com/testtaker2/dash";
+						console.log(json);
+					} 
+					else
+					{ 
+						alert("Please try again."); 
+					} 
+				} 
+			);
+		}
+
+	
+	</script>
+  </body>
+</html>
+

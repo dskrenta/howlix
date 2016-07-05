@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>Testtaker Sign Up</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+    <link href="font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form action="" method="post" class="form-signin">
+        <h2 class="form-signin-heading">Sign Up</h2>
+       
+	<input type="text" id="username" name="username" class="form-control" placeholder="Username" autocomplete="off" required autofocus>
+	<input type="email" id="email" name="email" class="form-control" placeholder="Email" autocomplete="off" required>
+	<input type="password" id="password" name="password" class="form-control" placeholder="Password" autocomplete="off" required>
+	<input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirm Password" autocomplete="off" required>
+	<input type="text" id="first_name" name="first_name" class="form-control" placeholder="First Name" autocomplete="off" required>
+	<input type="text" id="last_name" name="last_name" class="form-control" placeholder="Last Name" autocomplete="off" required>
+	        
+	<div class="radio">
+  		<label>
+    			<input type="radio" name="type" id="type" value="" checked>
+    			Student
+  		</label>
+	</div>
+	<div class="radio">
+  		<label>
+    			<input type="radio" name="type" id="type" value="1">
+    			Teacher
+  		</label>
+	</div>
+
+	<!--<input type="hidden" id="csrf_token" name="csrf_token" value="">--?       
+	<!--<input type="hidden" name="csrf_token" value="">-->
+	<div class="spacer"></div>
+	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+      </form>
+
+	<div style="width: 500px; float: left">
+            	</div>
+
+    </div> <!-- /container -->
+
+	<!-- Bootstrap core JavaScript
+    	================================================== -->
+    	<!-- Placed at the end of the document so the pages load faster -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    	<script src="js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$("#username").change(function() {
+			var username = $("#username").val();
+			if(!(username.match(/^[a-z0-9]*$/i)))
+			{	
+				alert("problem");
+			}		
+		})
+		$("#email").change(function() {
+                        alert("Changed");
+                })
+		$("#password").change(function() {
+                        alert("Changed");
+                })
+		$("#confirm_password").change(function() {
+                        alert("Changed");
+                })
+		$("#first_name").change(function() {
+                        alert("Changed");
+                })
+		$("#last_name").change(function() {
+                        alert("Changed");
+                })
+	</script>
+
+  </body>
+</html>
+
+
+

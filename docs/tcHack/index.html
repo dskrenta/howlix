@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    		<meta charset="utf-8">
+    		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    		<meta name="viewport" content="width=device-width, initial-scale=1">
+    		<meta name="description" content="">
+    		<meta name="author" content="">
+    		<link rel="icon" href="">
+
+    		<title>Ajax test</title>
+  	</head>
+  	<body>
+		<h1>Bootstrap starter template</h1>
+        	<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+
+    		<!-- Javascript -->
+        	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function()
+			{
+				setInterval(
+					$.get("http://www.skrenta.com/button/fetch.cgi", function(data)
+						{
+							alert(data);
+    						})
+					,
+					50			
+				); 
+			});
+		</script>
+  	</body>
+</html>
+
+
